@@ -1,4 +1,117 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-02T11:21:59-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Xander’s Blog</title><subtitle>thoughts here and there</subtitle><author><name>Xander Harris</name></author><entry><title type="html">Pixel Similarity with All of the Digits from the MNIST Dataset</title><link href="http://localhost:4000/pixel_similarity_MNIST_full_digits" rel="alternate" type="text/html" title="Pixel Similarity with All of the Digits from the MNIST Dataset" /><published>2022-09-30T15:35:00-07:00</published><updated>2022-09-30T15:35:00-07:00</updated><id>http://localhost:4000/pixel_similarity_MNIST_full_digits</id><content type="html" xml:base="http://localhost:4000/pixel_similarity_MNIST_full_digits"><![CDATA[<!DOCTYPE html>
+<!doctype html>
+<html>
+  <head>
+  <title>
+    
+      Pixel Similarity with All of the Digits from  the MNIST Dataset | Xander's Blog
+    
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <!-- Use Atom -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Xander&apos;s Blog" />
+  <!-- Use RSS-2.0 -->
+  <!--<link href="/rss-feed.xml" type="application/rss+xml" rel="alternate" title="Xander's Blog | thoughts here and there"/>
+  //-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quattrocento+Sans">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+    MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      });
+  </script>
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-112060364-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  <!-- Use Jekyll SEO plugin -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Pixel Similarity with All of the Digits from the MNIST Dataset | Xander’s Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Pixel Similarity with All of the Digits from the MNIST Dataset" />
+<meta name="author" content="Xander Harris" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="&lt;!DOCTYPE html&gt;" />
+<meta property="og:description" content="&lt;!DOCTYPE html&gt;" />
+<link rel="canonical" href="http://localhost:4000/pixel_similarity_MNIST_full_digits" />
+<meta property="og:url" content="http://localhost:4000/pixel_similarity_MNIST_full_digits" />
+<meta property="og:site_name" content="Xander’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-09-30T15:35:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Pixel Similarity with All of the Digits from the MNIST Dataset" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Xander Harris"},"dateModified":"2022-09-30T15:35:00-07:00","datePublished":"2022-09-30T15:35:00-07:00","description":"&lt;!DOCTYPE html&gt;","headline":"Pixel Similarity with All of the Digits from the MNIST Dataset","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/pixel_similarity_MNIST_full_digits"},"url":"http://localhost:4000/pixel_similarity_MNIST_full_digits"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+  <h3 class="header-title">
+    <a href="/">Xander's Blog</a>
+    <small class="header-subtitle">thoughts here and there</small>
+    <div class="menu">
+  <nav class="menu-content">
+    
+      <a href="/about.html">About</a>
+    
+      <a href="/writing.html">Writing</a>
+    
+      <a href="/now.html">Now</a>
+    
+      <a href="/contact.html">Contact</a>
+    
+  </nav>
+  <nav class="social-icons">
+    
+  
+  
+    <a href="https://www.github.com/xander-harris" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+  
+
+  
+  
+    <a href="http://www.linkedin.com/in/xander-harris/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+  
+
+  
+  
+    <a href="mailto:xander@xanderharris.me" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+  
+
+  
+  
+    <a href="/feed.xml"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+  
+
+  </nav>
+</div>
+
+  </h3>
+</header>
+
+      <div class="content-container">
+        <h1>
+  Pixel Similarity with All of the Digits from  the MNIST Dataset
+</h1>
+
+<article>
+  <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15571,4 +15684,69 @@ class="
 
 
 
-</html>]]></content><author><name>Xander Harris</name></author><summary type="html"><![CDATA[]]></summary></entry></feed>
+</html>
+
+</article>
+
+  <span class="post-date">
+  Written on
+  
+  September
+  30th,
+  2022
+  by
+  
+    Xander Harris
+  
+</span>
+
+
+
+  <div class="post-date">Feel free to share!</div>
+<div class="sharing-icons">
+  <a href="https://twitter.com/intent/tweet?text=Pixel Similarity with All of the Digits from  the MNIST Dataset&amp;url=/pixel_similarity_MNIST_full_digits" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=/pixel_similarity_MNIST_full_digits&amp;title=Pixel Similarity with All of the Digits from  the MNIST Dataset" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+</div>
+
+
+
+  <div class="related">
+  <h1 >You may also enjoy:</h1>
+  
+  <ul class="related-posts">
+    
+  </ul>
+</div>
+
+
+
+
+      </div>
+      <footer class="footer">
+  
+  
+  
+    <a href="https://www.github.com/xander-harris" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+  
+
+  
+  
+    <a href="http://www.linkedin.com/in/xander-harris/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+  
+
+  
+  
+    <a href="mailto:xander@xanderharris.me" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+  
+
+  
+  
+    <a href="/feed.xml"><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+  
+
+  <div class="footer-description"><a href="/">Xander's Blog | thoughts here and there by Xander Harris</a></div>
+</footer>
+
+    </div>
+  </body>
+</html>

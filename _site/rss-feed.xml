@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<channel>
+		<title>Xander&apos;s Blog</title>
+		<description>thoughts here and there</description>
+		<link></link>
+		<atom:link href="/rss-feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Pixel Similarity with All of the Digits from  the MNIST Dataset</title>
+				
+				
+					<description>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</description>
+				
+				<pubDate>Fri, 30 Sep 2022 15:35:00 -0700</pubDate>
+				<link>http://localhost:4000/pixel_similarity_MNIST_full_digits</link>
+				<guid isPermaLink="true">http://localhost:4000/pixel_similarity_MNIST_full_digits</guid>
+			</item>
+		
+	</channel>
+</rss>
