@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Welcome to my blog!
+title: Welcome!
 permalink: /about
 ---
 
-Text here.
+I'm Xander. This blog serves as an external repository of what I'm studying, working on, reading, and thinking about. It's part notebook, part motivation pact.
