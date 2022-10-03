@@ -5361,10 +5361,10 @@ span.bp3-icon:empty{
   content:"⌄"; }
 
 .bp3-icon-caret-left::before{
-  content:"〈"; }
+  content:"〈"; }
 
 .bp3-icon-caret-right::before{
-  content:"〉"; }
+  content:"〉"; }
 
 .bp3-icon-caret-up::before{
   content:"⌃"; }
@@ -14632,7 +14632,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>I'm currently working through <em>Practical Deep Learning for Coders</em>, a MMOC from the fast.ai team. The fast.ai python library and the multitude of material around it, as the team behind it likes to say, is 'making neural nets uncool again'. The course is based on a book written by the team of nearly the same title, <em>Practical Deep Learning for Coders with fastai and PyTorch</em>, and I'm working through the chapters one by one with the accompanying video lectures by one of the authors, Professor Jeremy Howard, Phd.</p>
+<p>I'm currently working through <a href="https://course.fast.ai/">Practical Deep Learning for Coders</a>, a MOOC from the fast.ai team. The fast.ai python library and the multitude of material around it, as the team behind it likes to say, is 'making neural nets uncool again'. The course is based on a book written by the team of nearly the same title, <em>Practical Deep Learning for Coders with fastai and PyTorch</em>, and I'm working through the chapters one by one with the accompanying video lectures by one of the authors, Professor Jeremy Howard, Phd.</p>
 <p>This week I worked through Chapter 4: MNIST Basics (subtitled <em>Under the Hood: Training a Digit Classifier</em>). As the title suggests, this is the first chapter in the book that dives into the foundations of neural networks and it steps through building a network from scratch using a foundation dataset in computer vision, MNIST. MNIST, curated by Yann Lecun and colleagues, consists of images of handwritten digits from 0-9 collected from US Census workers and US high school students.</p>
 <p>The chapter develops two models that predict if a given input image is a 3 or a 7. One using a neural network and one that does not, but serves as a baseline to serve as a comparison for the advantages a neural network can bring to this problem.</p>
 <p>This post will expand the baseline model to differentiate and predict across all 10 digits, 0-9. A following post will then expand the neural network in the same way. Let's get on with it!</p>
@@ -14720,6 +14720,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Within the training directory, there are subdirectories for each digit.</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14759,6 +14771,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>And those directories are full of individual images stored as pngs. We can then get a quick sanity check that we've got the images we think we should have by viewing one:</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14799,18 +14823,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 </div>
 
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>And we can get a quick sanity check that we've got the images we think we should have by viewing one:</p>
-
-</div>
-</div>
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14872,7 +14884,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The MNIST dataset is normalized so that all images are 28x28 pixels and anti-aliased (see wikipedia) to introduce grey scale values. This will allow us to work with each pixel individually, represented by a numerical value between 0 and 255 that corresponds to the darkness of that pixel (0 is fully white, 255 fully black).</p>
+<p>The MNIST dataset is normalized so that all images are 28x28 pixels and anti-aliased <a href="https://en.wikipedia.org/wiki/Spatial_anti-aliasing">(wikipedia)</a> to introduce grey scale values. This will allow us to work with each pixel individually, represented by a numerical value between 0 and 255 that corresponds to the darkness of that pixel (0 is fully white, 255 fully black).</p>
 <p>To implement our computer vision models, we won't view the images directly as we did above with the zero, but rather convert the images to 28x28 matrices (or rank 2 tensors) with each value representing a individual pixel. Further, before we can start any modeling, we need to prepare all of our images into easily manipulatable objects in python.</p>
 
 </div>
@@ -15158,7 +15170,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>So first we need to create the mean image tensors:</p>
+<p>So first we need to create the mean image tensors. Again, I do the same thing with a for loop and with list comprehension to show the differences/similarities.</p>
 
 </div>
 </div>
@@ -15226,6 +15238,18 @@ class="
 </div>
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>And then create a function that takes an image from the MNIST dataset as a tensor normalized to floating values between 0 and 1 and uses mean square error as a loss function to make a prediction of which digit the input image represents. We then feed it our two test cases to see that it's performing correctly.</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15274,6 +15298,18 @@ class="
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>And we can build a similar function using list comprehension instead of the for loop above. The function performs the same, but differs in that it returns tensors rather than ints.</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15321,12 +15357,24 @@ class="
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>These functions are a simple model we can use to generate predictions for what digit is represented within any MNIST image we want. We can benchmark our future efforts with more robust machine learning models against this model by running our pixel similarity model against the testing images to see how well it performs. We'll do this first with a series of for loops:</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># first the for loop</span>
@@ -15336,16 +15384,16 @@ class="
 <span class="k">for</span> <span class="n">digitidx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">total_for</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">stacked_testing_tensors</span><span class="p">[</span><span class="n">digitidx</span><span class="p">]))</span>
 
-    <span class="n">preds</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">imgidx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">stacked_testing_tensors</span><span class="p">[</span><span class="n">digitidx</span><span class="p">])):</span>
-        <span class="n">preds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_digit_prediction_for</span><span class="p">(</span><span class="n">stacked_testing_tensors</span><span class="p">[</span><span class="n">digitidx</span><span class="p">][</span><span class="n">imgidx</span><span class="p">]))</span>
+        <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_digit_prediction_for</span><span class="p">(</span><span class="n">stacked_testing_tensors</span><span class="p">[</span><span class="n">digitidx</span><span class="p">][</span><span class="n">imgidx</span><span class="p">]))</span>
 
-    <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">preds</span><span class="p">)):</span>
-        <span class="k">if</span> <span class="n">preds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">digitidx</span><span class="p">:</span>
-            <span class="n">right</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">correct_prediction</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">predictions</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">predictions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">digitidx</span><span class="p">:</span>
+            <span class="n">correct_prediction</span> <span class="o">+=</span> <span class="mi">1</span>
     
-    <span class="n">correct_for</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
+    <span class="n">correct_for</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">correct_prediction</span><span class="p">)</span>
 
 <span class="n">correct_for</span><span class="p">,</span> <span class="n">total_for</span>
 </pre></div>
@@ -15363,7 +15411,7 @@ class="
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 
 
 
@@ -15384,7 +15432,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Overall Accuracy: '</span><span class="p">,</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">correct_for</span><span class="p">)</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">total_for</span><span class="p">)))</span>
@@ -15416,12 +15464,36 @@ class="
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>So given the testing set of 10,000 images, our pixel similarity model has an overall accuracy of about 82%. Not terrible, but not great.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Our parallel implementation using list comprehension instead of for loops is below. It yields the exact same results, as we expect because it's doing the same logic, just expressed in python in a slightly different way. I actually find this implementation more difficult to understand, but I may change my mind on that later.</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># List comprehension</span>
@@ -15454,7 +15526,7 @@ class="
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 
 
 
@@ -15562,7 +15634,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>So now that we've got functions that will give us a prediction, we can use them across the all the testing images and keep track of if it made the correct prediction or not.</p>
+<h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h2><p>We've constructed a simple model that, when given an input MNIST image, makes a prediction of which digit 0-9 is present in the image. The model uses no machine learning; instead it compares the input image to the average, composite image from the training set, pixel by pixel and decides which average is closest to the input. Our model is around 82% accurate, which will serve as a baseline for us to compare the performance of more advanced machine learning models against.</p>
 
 </div>
 </div>
